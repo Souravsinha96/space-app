@@ -112,6 +112,9 @@ select {
   max-width: 80rem;
   margin-inline: auto;
 }
+.grid-container {
+  grid-template-columns: 2em;
+}
 .sr-only {
   position: absolute;
   width: 1px;

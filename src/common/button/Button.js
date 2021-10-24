@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Button.css";
 function Button({ to, children }) {
   return (
-    <a
-      href={to}
+    <Link
+      to={to}
       className="large-button uppercase ff-serif fs-600 text-dark bg-white"
     >
       {children}
-    </a>
+    </Link>
   );
 }
 
