@@ -8,7 +8,7 @@ function TopMenu() {
       <div>
         <img src={Logo} alt="logo" />
       </div>
-      <nav>
+      {/* <nav>
         <ul className="primary-navigation underline-indicators flex">
           <li className="active">
             <Link
@@ -43,7 +43,7 @@ function TopMenu() {
             </Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </header>
   );
 }

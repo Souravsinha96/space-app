@@ -5,7 +5,7 @@ function Button({ to, children }) {
   return (
     <Link
       to={to}
-      className="large-button uppercase ff-serif fs-600 text-dark bg-white"
+      className="large-button uppercase ff-serif  text-dark bg-white"
     >
       {children}
     </Link>

@@ -2,49 +2,72 @@
 /* Custom properties   */
 /* ------------------- */
 :root {
-  /* color */
+  /* colors */
   --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
+
   /* font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
-  /* font-family */
+
+  /* font-families */
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
 }
 
-/* ............. */
-/* Reset         */
-/* ............. */
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing */
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-/* reset margins */
+
+/* Reset margins */
 body,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
 p,
-picture,
-figure {
+figure,
+picture {
   margin: 0;
 }
+
 h1,
 h2,
 h3,
@@ -54,24 +77,24 @@ h6,
 p {
   font-weight: 400;
 }
-/* set up the body */
 
+/* set up the body */
 body {
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
   color: hsl(var(--clr-white));
   background-color: hsl(var(--clr-dark));
   line-height: 1.5;
-  min-height: 100vh;
 }
-/* images */
+
+/* make images easier to work with */
 img,
-picture {
+picutre {
   max-width: 100%;
   display: block;
 }
 
-/* make forms easier */
+/* make form elements easier to work with */
 input,
 button,
 textarea,
@@ -79,7 +102,7 @@ select {
   font: inherit;
 }
 
-/* remove animations for people who have turned them off */
+/* remove animations for people who've turned them off */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -90,46 +113,75 @@ select {
     scroll-behavior: auto !important;
   }
 }
-/* .............   */
-/* Utility classes */
-/* .............   */
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+.body-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
 }
+
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
 }
 
-/* spacing , where is used as it does not add any specificity */
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
-  outline: 1px solid red;
 }
+
 .container {
   padding-inline: 2em;
-  max-width: 80rem;
   margin-inline: auto;
+  max-width: 80rem;
 }
+
 .grid-container {
+  text-align: center;
   display: grid;
-  column-gap: var(--container-gap, 2rem);
-  grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-      2rem,
-      1fr
-    );
+  place-items: center;
+  padding-inline: 1rem;
 }
 
-.grid-container > *:first-child {
-  grid-column: 2;
-  outline: 1px solid red;
+.grid-container * {
+  max-width: 50ch;
 }
 
-.grid-container > *:last-child {
-  grid-column: 3;
-  outline: 1px solid yellow;
+@media (min-width: 45em) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
 }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -141,7 +193,8 @@ select {
   white-space: nowrap; /* added line */
   border: 0;
 }
-/* colors  */
+
+/* colors */
 
 .bg-dark {
   background-color: hsl(var(--clr-dark));
@@ -162,6 +215,7 @@ select {
 .text-white {
   color: hsl(var(--clr-white));
 }
+
 /* typography */
 
 .ff-serif {
@@ -219,6 +273,7 @@ select {
 .fs-600 {
   line-height: 1.1;
 }
+
 .numbered-title {
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-500);
