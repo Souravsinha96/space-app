@@ -10,29 +10,26 @@ const DATA = require("./constants/data.json");
 function App() {
   return (
     <Router>
-      <div className="body-wrapper">
-        <TopMenu />
-        <Switch>
-          <Route path="/" exact render={(props) => <Home {...props} />} />
-          <Route
-            path="/destination"
-            exact
-            render={(props) => (
-              <Destination data={DATA.destinations} {...props} />
-            )}
-          />
-          <Route
-            path="/crew"
-            exact
-            render={(props) => <Crew data={DATA.crew} {...props} />}
-          />
-          <Route
-            path="/technology"
-            exact
-            render={(props) => <Technology data={DATA.technology} {...props} />}
-          />
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/" exact render={(props) => <Home {...props} />} />
+        <Route
+          path="/destination"
+          exact
+          render={(props) => (
+            <Destination data={DATA.destinations} {...props} />
+          )}
+        />
+        <Route
+          path="/crew"
+          exact
+          render={(props) => <Crew data={DATA.crew} {...props} />}
+        />
+        <Route
+          path="/technology"
+          exact
+          render={(props) => <Technology data={DATA.technology} {...props} />}
+        />
+      </Switch>
     </Router>
   );
 }
