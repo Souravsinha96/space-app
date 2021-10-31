@@ -4,7 +4,6 @@ import Home from "./pages/home/Home";
 import Destination from "./pages/destination/Destination";
 import Crew from "./pages/crew/Crew";
 import Technology from "./pages/technology/Technology";
-import TopMenu from "./common/topMenu/TopMenu";
 import "./index.css";
 const DATA = require("./constants/data.json");
 function App() {

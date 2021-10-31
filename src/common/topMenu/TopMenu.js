@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./TopMenu.css";
 import Logo from "../../assets/shared/logo.svg";
+
 function TopMenu() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="primary-header flex">
       <div>
-        <img src={Logo} alt="logo" />
+        <img className="logo" src={Logo} alt="logo" />
       </div>
-      {/* <nav>
-        <ul className="primary-navigation underline-indicators flex">
+
+      <button
+        onClick={() => setOpen(!open)}
+        className={open ? "mobile-nav-toggle active" : "mobile-nav-toggle"}
+        aria-controls="primary-navigation"
+      >
+        <span className="sr-only" aria-expanded={open}>
+          Menu
+        </span>
+      </button>
+      <nav>
+        <ul
+          id="primary-navigation"
+          className={`${
+            open ? `primary-navigation active` : `primary-navigation`
+          } underline-indicators flex`}
+        >
           <li className="active">
             <Link
               className="uppercase ff-sans-cond  text-white letter-spacing-2"
               to="/"
             >
-              <span>01</span>Home
+              <span>00</span>Home
             </Link>
           </li>
           <li>
@@ -23,7 +40,7 @@ function TopMenu() {
               className="uppercase ff-sans-cond text-white letter-spacing-2"
               to="/destination"
             >
-              <span>02</span>Destination
+              <span>01</span>Destination
             </Link>
           </li>
           <li>
@@ -31,7 +48,7 @@ function TopMenu() {
               className="uppercase ff-sans-cond text-white letter-spacing-2"
               to="/crew"
             >
-              <span>03</span>Crew
+              <span>02</span>Crew
             </Link>
           </li>
           <li>
@@ -39,11 +56,11 @@ function TopMenu() {
               className="uppercase ff-sans-cond text-white letter-spacing-2"
               to="/technology"
             >
-              <span>04</span>Technology
+              <span>03</span>Technology
             </Link>
           </li>
         </ul>
-      </nav> */}
+      </nav>
     </header>
   );
 }
