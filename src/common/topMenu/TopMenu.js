@@ -32,7 +32,7 @@ function TopMenu() {
               className="uppercase ff-sans-cond  text-white letter-spacing-2"
               to="/"
             >
-              <span>00</span>Home
+              <span aria-hidden="true">00</span>Home
             </Link>
           </li>
           <li>
@@ -40,7 +40,7 @@ function TopMenu() {
               className="uppercase ff-sans-cond text-white letter-spacing-2"
               to="/destination"
             >
-              <span>01</span>Destination
+              <span aria-hidden="true">01</span>Destination
             </Link>
           </li>
           <li>
@@ -48,7 +48,7 @@ function TopMenu() {
               className="uppercase ff-sans-cond text-white letter-spacing-2"
               to="/crew"
             >
-              <span>02</span>Crew
+              <span aria-hidden="true">02</span>Crew
             </Link>
           </li>
           <li>
@@ -56,7 +56,7 @@ function TopMenu() {
               className="uppercase ff-sans-cond text-white letter-spacing-2"
               to="/technology"
             >
-              <span>03</span>Technology
+              <span aria-hidden="true">03</span>Technology
             </Link>
           </li>
         </ul>
