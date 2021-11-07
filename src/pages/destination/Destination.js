@@ -2,10 +2,11 @@ import React from "react";
 import TopMenu from "../../common/topMenu/TopMenu";
 import "./Destination.css";
 import moon from "../../assets/destination/image-moon.png";
+import moon1 from "../../assets/destination/image-moon.webp";
 function Destination({ data }) {
   console.log(data);
   return (
-    <div className="bd-wrapper">
+    <div className="bd-wrapper destination">
       <a className="skip-to-content" href="#main">
         Skip to content
       </a>
@@ -18,36 +19,39 @@ function Destination({ data }) {
           <span aria-hidden="true">01</span> Pick your destination
         </h1>
 
-        <img src={moon} alt="the moon" />
+        <picture>
+          <source srcet={moon1} type="image/webp" />
+          <img src={moon} alt="Douglas Hurley" />
+        </picture>
 
         <div className="tab-list underline-indicators flex">
           <button
             aria-selected="true"
-            className="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2"
+            className="uppercase ff-sans-cond text-accent  letter-spacing-2"
           >
             Moon
           </button>
           <button
             aria-selected="false"
-            className="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2"
+            className="uppercase ff-sans-cond text-accent  letter-spacing-2"
           >
             Mars
           </button>
           <button
             aria-selected="false"
-            className="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2"
+            className="uppercase ff-sans-cond text-accent  letter-spacing-2"
           >
             Europa
           </button>
           <button
             aria-selected="false"
-            className="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2"
+            className="uppercase ff-sans-cond text-accent  letter-spacing-2"
           >
             Titan
           </button>
         </div>
 
-        <article className="destination-info">
+        <article className="destination-info flow">
           <h2 className="fs-800 uppercase ff-serif">Moon</h2>
 
           <p>
